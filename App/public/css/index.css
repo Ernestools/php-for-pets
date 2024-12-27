@@ -1,0 +1,29 @@
+.content {
+    margin-top: 10%;
+    max-width: 600px;
+}
+.content h1 {
+    font-size: 50px; 
+    color: #222;
+}
+.content p {
+    margin:  10px 0 30px;
+    color:  #333;
+
+}
+.content .btn {
+    padding: 15px 80px;
+    font-size: 16px;
+}
+.btn:hover {
+    border-top-right-radius: 30px;
+}
+.feature-img{
+    width : 490px ; 
+    position : absolute;
+    bottom : 0 ;
+    top: 180px;
+
+    right : 10% ; 
+    border-radius: 20px;
+}
