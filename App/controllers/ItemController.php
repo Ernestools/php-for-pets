@@ -1,6 +1,5 @@
 <?php
-
-require("BaseController.php");
+require_once("BaseController.php");
 
 class ItemController extends BaseController{
     private $itemModel;
@@ -8,7 +7,6 @@ class ItemController extends BaseController{
     public function __construct($itemModel) {
         $this->itemModel = $itemModel;
     }
-
     public function index() {
         $items = $this->itemModel->getAll();
         $this->ListView('items/list.php', $items);
@@ -28,7 +26,6 @@ class ItemController extends BaseController{
             require_once '../views/items/add.php';
         }
     }
-
     public function delete() {
         if (isset($_POST['id'])) {
             $this->itemModel->delete($_POST['id']);

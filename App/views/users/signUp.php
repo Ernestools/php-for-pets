@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-<html >
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>veterinary website</title>
-    <link rel="stylesheet" href="./css/sharedCSS.css">
-    <link rel="stylesheet" href="./css/signUp.css">
-</head>
-<body>
-    <header>
-        <div class="hero">
-           <nav>
-            <img src ="images/logo.jpg" class="logo">
-            <ul>
-                <li> <a href = "index.html">Home</a></li>
-                <li> <a href = "#">How it works</a></li>
-                <li> <a href = "#">Privacy</a></li>
-            </ul>
-            <div>
-                <a href="login.html" class="login-btn">Log in</a> 
-            </div>
-            </nav>
             <div class="container">
                 <div class="title">Sign up</div>
                 <div class="content">
@@ -55,10 +33,5 @@
                   </form>
                 </div>
               </div>
-    </header>
 
-    <script src="signUp.js"></script>
-
-    
-</body>
-</html>
+    <script src="js/signUp.js"></script>

@@ -9,7 +9,7 @@ class BaseController{
         $this->CheckIsAdmin();
     }
 
-    function IsAdmin()
+    function GetIsAdmin()
     {
         return $this->isAdmin;
     }

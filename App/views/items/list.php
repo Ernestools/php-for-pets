@@ -8,7 +8,7 @@
                 <div class="product-details">
                     <h2><?= htmlspecialchars($item['name']) ?></h2>
                     <p><?= htmlspecialchars($item['price']) ?></p>
-                    <?php if($this->IsAdmin()):?>
+                    <?php if($this->GetIsAdmin()):?>
                         <form method="post" action="?route=delete">
                             <input type="hidden" name="id" value="<?= htmlspecialchars($item['id']) ?>"/>
                             <button class="buy-now">Delete</button>
