@@ -13,10 +13,12 @@
            <nav>
                 <img src ="./images/logo.jpg" class="logo">
                 <ul>
-                    <li><a name="logout" href ="">Home</a></li>
+                    <li><a id="logout" href ="">Home</a></li>
                     <?php if($this->GetIsAdmin()): ?>
                         <li> <a href = "?route=itemList">Products</a></li>
                         <li> <a href = "?route=userList">Users</a></li>
+                    <?php else: ?>
+                        <li> <a href = "?route=basket">Panier</a></li>
                     <?php endif ?>
                     <li><a href ="?route=logout">Logout</a></li>
                 </ul>

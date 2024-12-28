@@ -10,7 +10,7 @@ class BaseController{
 
     function __construct()
     {
-        $this->CheckIsLoggedIn();
+    //  $this->CheckIsLoggedIn();
         $this->CheckIsAdmin();
     }
 

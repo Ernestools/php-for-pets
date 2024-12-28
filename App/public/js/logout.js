@@ -14,6 +14,6 @@ function clearAllCookies() {
 link.addEventListener('click', function(event) {
     event.preventDefault();
     console.log('Link clicked, but navigation is prevented.');
-    clearAllCookies();
+    //clearAllCookies();
     //window.location.href = "?route=home";
 });

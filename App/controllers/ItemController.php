@@ -50,6 +50,11 @@ class ItemController extends BaseController{
 
     public function basket(){
         $userId = 'user'.$_COOKIE[$this->GetCookieName()];
+        if(!isset($_SESSION[$userId])){
+            $this->ListView('items/basket.php', []);
+            return;
+        }
+        
         $items = $_SESSION[$userId];
         $values=array_values($items);
         $dbItems = $this->itemModel->getByIds($values);
