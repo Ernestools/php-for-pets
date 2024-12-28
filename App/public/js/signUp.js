@@ -53,10 +53,9 @@ document.getElementById('signUpform').addEventListener('submit', function(event)
     }
 
     if (isValid) {
-        // Save user data to local storage
         const userData = { username, password };
         localStorage.setItem('user', JSON.stringify(userData));
-        alert("Sign-up successful! Redirecting to login page...");
+        alert("Operated successfully !");
         document.signUpform.submit();
     }
 });

@@ -65,11 +65,22 @@ header ul li a {
     border-radius: 5px;
 }
 
+button.delete-now{
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #320623;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
 .convert-btn {
     background-color: #463443; /* Green button for Convert */
 }
 
-.buy-now:hover, .convert-btn:hover {
+.buy-now:hover, .convert-btn:hover ,.delete-now:hover {
     opacity: 0.9;
 }
 

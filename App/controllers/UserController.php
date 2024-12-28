@@ -23,6 +23,20 @@ class UserController extends BaseController  {
             header('Location: ?route=signupView');
         }
     }
+
+    public function addUser() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->userModel->createUser($_POST['username'], $_POST['password']);
+            header('Location: ?route=userList');
+        } else {
+            header('Location: ?route=userList');
+        }
+    }
+    public function addUserView()
+    {
+        $this->View('users/add.php');
+    }
+    
     public function delete() {
         if(isset($_GET["id"])){
             $this->userModel->deleteUser($_GET["id"]);

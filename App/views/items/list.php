@@ -26,7 +26,7 @@
     </div>
     <?php if($this->GetIsAdmin()):?>
         <form method="post" action="?route=addView">
-            <button class="buy-now">Add</button>
+            <button class="buy-now">Add A new Product </button>
         </form>
     <?php endif; ?>
 

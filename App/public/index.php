@@ -44,7 +44,13 @@ if ($route === 'add') {
     $UserController->delete();
 }elseif ($route === 'basket'){
     $itemController->basket();
-}//deleteUser
+}elseif ($route === 'addUser'){
+    $UserController->addUser();
+}elseif ($route === 'addUserView'){
+    $UserController->addUserView();
+}elseif ($route === 'home'){
+    require '../views/home.php';
+}
  else {
     require '../views/home.php';
 }

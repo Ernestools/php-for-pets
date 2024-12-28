@@ -13,14 +13,19 @@
            <nav>
                 <img src ="./images/logo.jpg" class="logo">
                 <ul>
-                    <li><a id="logout" href ="">Home</a></li>
                     <?php if($this->GetIsAdmin()): ?>
                         <li> <a href = "?route=itemList">Products</a></li>
                         <li> <a href = "?route=userList">Users</a></li>
-                    <?php else: ?>
+                        <li><a id="logout" href ="?route=home">Logout</a></li>
+                    
+                    
+                    <?php elseif($this->IsLoggedIn()): ?>
                         <li> <a href = "?route=basket">Panier</a></li>
+                        <li><a id="logout" href ="?route=home">Logout</a></li>
+                    <?php else: ?>
+                        <a href="?route=signupView" class="btn">Sign Up</a> 
                     <?php endif ?>
-                    <li><a href ="?route=logout">Logout</a></li>
+                    
                 </ul>
             </nav>
         </div>

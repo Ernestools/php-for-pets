@@ -76,8 +76,13 @@ class BaseController{
     function CheckIsLoggedIn()
     {
         if(!isset($_COOKIE[$this->GetCookieName()]))
-            header("Location: ?route=login");
+            header("Location: ?route=home");
         $this->isLoggedIn = true;
+    }
+    function IsLoggedIn()
+    {
+        return (isset($_COOKIE[$this->GetCookieName()]));
+           
     }
 
 

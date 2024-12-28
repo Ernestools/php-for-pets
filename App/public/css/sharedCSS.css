@@ -3,9 +3,12 @@
     padding : 0 ;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    background-position: center;
+    background-position: center;
+    background-size: cover;
+    
 }
-
-/*.hero {
+/* .hero {
     width: 100%;
     min-height:  100vh;
     background-image: url(../images/back-image.png);
@@ -14,7 +17,8 @@
     padding : 10px 10% ;
     overflow: hidden;
     position: relative;
-}*/
+} */
+ 
 nav{
     padding: 10px 0;
     display : flex ; 

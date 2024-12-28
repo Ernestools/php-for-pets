@@ -3,7 +3,7 @@
 <div class="container">
     <div class="title">Add Product</div>
     <div class="content">
-        <form id="signUpform" method="post" action="http://localhost/rimo-pets/App/public/index.php?route=add" enctype="multipart/form-data">
+        <form id="signUpform" method="post" action="?route=add" enctype="multipart/form-data">
         <div class="user-details">
             <div class="input-box">
             <span class="details">Name</span>

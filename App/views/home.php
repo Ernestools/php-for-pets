@@ -14,12 +14,9 @@
             <img src ="images/logo.jpg" class="logo">
             <ul>
                 <li> <a href = "#">Home</a></li>
-                <li> <a href = "#">How it works</a></li>
-                <li> <a href = "#">Privacy</a></li>
             </ul>
             <div>
-                <a href="login.html" class="login-btn">Log in</a> 
-                    <a href="signUp.html" class="btn">Sign Up</a> 
+                    <a href="?route=signupView" class="btn">Sign Up</a> 
             </div>
            </nav>
            <div class="content">
