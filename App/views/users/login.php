@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="title">Login</div>
                 <div class="content">
-                  <form id="loginForm" action="#">
+                  <form id="loginForm" action="?route=login" method="post">
                     <div class="user-details">
                       <div class="input-box">
                         <span class="details">Username</span>

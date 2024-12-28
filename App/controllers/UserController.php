@@ -5,31 +5,69 @@ class UserController extends BaseController  {
 
     public function __construct($userModel) {
         $this->userModel = $userModel;
+        parent::__construct();
     }
 
-    public function index() {
+    public function list() {
+        if(!$this->GetIsAdmin())
+            $this->Unauthorized();
         $users = $this->userModel->getAllUsers();
-        require_once '../views/users/list.php';
+        $this->ListView('users/list.php', $users);
     }
 
     public function add() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->userModel->createUser($_POST['name'], $_POST['email']);
-            header('Location: /tpphp/public');
+            $this->userModel->createUser($_POST['username'], $_POST['password']);
+            header('Location: ?route=loginView');
         } else {
-            require_once '../views/users/add.php';
+            header('Location: ?route=signupView');
         }
     }
-    public function delete($id) {
-        $this->userModel->deleteUser($id);
-        header('Location: /tpphp/public');
+    public function delete() {
+        if(isset($_GET["id"])){
+            $this->userModel->deleteUser($_GET["id"]);
+        }
+        header('Location: ?route=userList');
     }
-    public function login($id) {
-        header('Location: /tpphp/public');
+
+    public function IsAdminLogin($username, $pwd)
+    {
+        return $username == $this->adminUsername && $pwd == $this->adminPwd;
     }
+
+    public function login() {
+        if(!isset($_POST['username']) || !isset($_POST['password'])){    
+            header('Location: ?route=loginView&error=1');
+            return;
+        }
+
+        if($this->IsAdminLogin($_POST['username'], $_POST['password'])){
+            $this->CreateCookie($this->adminId);
+            header('Location: ?route=itemList');
+            return;
+        }
+
+
+        $user =  $this->userModel->login($_POST['username'], $_POST['password']);
+        
+        if(empty($user)){
+            header('Location: ?route=loginView&error=2');
+            return;
+        }
+
+        $this->CreateCookie($user[0]['id']);
+        header('Location: ?route=itemList');
+        return;
+    }
+
     public function loginView()
     {
         $this->View('users/login.php');
+    }
+
+    public function signupView()
+    {
+        $this->View('users/signUp.php');
     }
 
 }

@@ -21,6 +21,17 @@ class Item {
         $stmt = $this->db->prepare("DELETE FROM items WHERE id = :id");
         $stmt->execute(['id' => $id]);
     }
+
+    public function getByIds($ids) {
+        if (!is_array($ids)) {
+            throw new InvalidArgumentException('Expected an array of IDs');
+        }
+    
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+        $stmt = $this->db->prepare("SELECT * FROM items WHERE id IN ($placeholders)");
+        $stmt->execute($ids);    
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 ?>

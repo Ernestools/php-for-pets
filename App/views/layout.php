@@ -11,21 +11,22 @@
     <header>
         <div class="hero">
            <nav>
-            <img src ="./images/logo.jpg" class="logo">
-            <ul>
-                <li> <a href = "#">Home</a></li>
-                <li> <a href = "#">How it works</a></li>
-                <li> <a href = "#">Privacy</a></li>
-            </ul>
-            <div>
-                <a href="login.html" class="login-btn">Log in</a> 
-                <a href="signUp.html" class="btn">Sign Up</a> 
-            </div>
-           </nav>
+                <img src ="./images/logo.jpg" class="logo">
+                <ul>
+                    <li><a name="logout" href ="">Home</a></li>
+                    <?php if($this->GetIsAdmin()): ?>
+                        <li> <a href = "?route=itemList">Products</a></li>
+                        <li> <a href = "?route=userList">Users</a></li>
+                    <?php endif ?>
+                    <li><a href ="?route=logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <div class="main">
         <?php include($section_path); ?>
     </div>
+    <script src="js/logout.js"></script>
 
 </body>
 </html>

@@ -1,12 +1,30 @@
 <?php
 
 class BaseController{
-    private $isAdmin = true;
-    private $isLoggedIn = true;
+    private $isAdmin = false;
+    private $isLoggedIn = false;
+    private $cookieName = "fingerprint";
+    protected $adminUsername = "admin";
+    protected $adminPwd = "admin";
+    protected $adminId = -666;
 
     function __construct()
     {
+        $this->CheckIsLoggedIn();
         $this->CheckIsAdmin();
+    }
+
+    function CreateCookie($id)
+    {
+        $name = $this->GetCookieName();
+        $value = $id;
+        $expiry = time() + (86400 * 30); // Cookie valid for 30 days
+        setcookie($name, $value, $expiry, "/");
+    }
+
+    function GetCookieName()
+    {
+        return $this->cookieName;
     }
 
     function GetIsAdmin()
@@ -20,6 +38,17 @@ class BaseController{
 
     function View($section_path){
         require_once '../views/layout.php';
+    }
+
+    function Unauthorized() {
+        http_response_code(401);
+    
+        echo json_encode([
+            'error' => 'Unauthorized',
+            'message' => 'You do not have permission to access this resource.'
+        ]);
+    
+        exit;
     }
 
     function WriteFile()
@@ -36,16 +65,19 @@ class BaseController{
 
     function CheckIsAdmin()
     {
-        //this is a fake function so far
-        //when the user management part is implemented, it will have a meaning
-        //for now, it is a dumbass thing in our code
-        $isAdmin = true;
+        if (!isset($_COOKIE[$this->GetCookieName()])){
+            $this->isAdmin = false;
+            return;
+        }
+        
+        $this->isAdmin =  ((int)$_COOKIE[$this->GetCookieName()]) == $this->adminId;
     }
 
     function CheckIsLoggedIn()
     {
-        if(false)//we need some real fucking condition, wtf is that
-            header("Location: ?route=login");//get your ass to the login page you little unlogged fucker
+        if(!isset($_COOKIE[$this->GetCookieName()]))
+            header("Location: ?route=login");
+        $this->isLoggedIn = true;
     }
 
 

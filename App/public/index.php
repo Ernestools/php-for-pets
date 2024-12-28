@@ -9,6 +9,8 @@ require_once '../models/Item.php';
 require_once '../controllers/ItemController.php';
 require_once '../controllers/UserController.php';
 
+session_start();
+
 $db = new Database($config['db']);
 $itemModel = new Item($db->getConnection());
 $UserModel = new User($db->getConnection());
@@ -20,15 +22,30 @@ $route = $_GET['route'] ?? 'index';
 
 if ($route === 'add') {
     $itemController->add();
-}if ($route === 'addView') {
+} elseif ($route === 'addView') {
     $itemController->addView();
 } elseif ($route === 'delete') {
     $itemController->delete();
-} elseif  ($route === 'itemList'){
-    $itemController->index();
-} elseif  ($route === 'loginView'){
+} elseif ($route === 'itemList'){
+    $itemController->list();
+} elseif ($route === 'userList'){
+    $UserController->list();
+} elseif ($route === 'loginView'){
     $UserController->loginView();
-} else {
+} elseif ($route === 'login'){
+    $UserController->login();
+} elseif ($route === 'signupView'){
+    $UserController->signupView();
+}elseif ($route === 'signup'){
+    $UserController->add();
+}elseif ($route === 'addToChart'){
+    $itemController->addToChart();
+}elseif ($route === 'deleteUser'){
+    $UserController->delete();
+}elseif ($route === 'basket'){
+    $itemController->basket();
+}//deleteUser
+ else {
     require '../views/home.php';
 }
 ?>

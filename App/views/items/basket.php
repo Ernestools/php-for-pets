@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="./css/products.css">
 <div class="product-section">
-    <h1 class="styled-title">Our Latest pet's Services are here for you ! </h1>
+    <h1 class="styled-title">Panier </h1>
     <div class="product-container">
         <?php foreach ($items as $item): ?>
             <div class="product-card">
@@ -14,10 +14,7 @@
                             <button class="buy-now">Delete</button>
                         </form>
                     <?php else: ?>
-                        <form action="?route=addToChart" method="post">
-                            <input type="hidden" name="itemId" value="<?= htmlspecialchars($item['id']) ?>"/>
-                            <button class="buy-now" type="submit">Buy</button>
-                        </form>
+                        <button class="buy-now">Buy</button>
                     <?php endif; ?>
                     <button class="convert-btn" data-usd="<?= htmlspecialchars($item['price']) ?>">Convert to Dinar</button>
                 </div>
